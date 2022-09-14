@@ -21,6 +21,9 @@
         "start": "php -S localhost:8042 -t public",
         "test": "php vendor/bin/phpunit --testdox tests"
     },
+    "config": {
+        "process-timeout": 0
+    },
     "require-dev": {
         "roave/security-advisories": "dev-latest",
         "phpunit/phpunit": "^9"
