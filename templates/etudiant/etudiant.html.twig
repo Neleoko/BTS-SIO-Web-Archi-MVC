@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %}add{% endblock %}
+
+{% block content %}
+
+    <form method="post">
+        <label>Pseudo</label>
+        <input name="login" type="text" placeholder="Pseudo" value="{{ etudiant.getLogin }}"><br>
+        <label>Prénom</label>
+        <input name="prenom" type="text" placeholder="Prénom" value="{{ etudiant.getPrenom }}"><br>
+        <label>Nom</label>
+        <input name="nom" type="text" placeholder="Nom" value="{{ etudiant.getNom }}"><br>
+        <label>Email</label>
+        <input name="email" type="email" placeholder="email" value="{{ etudiant.getEmail }}"><br>
+
+        <br>
+        <button type="submit">Modifier</button>
+    </form>
+    <a href="/etudiant/{{ etudiant.getIdEtudiant }}/del">Suppression</a><br>
+    <a href="../etudiant/">Retour</a><br>
+    
+{% endblock %}

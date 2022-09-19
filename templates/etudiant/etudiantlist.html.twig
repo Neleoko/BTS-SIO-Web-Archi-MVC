@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block title %}add{% endblock %}
+
+{% block content %}
+    <style>
+        table,
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Login</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+            <th>Informations</th>
+        </tr>
+        {% for etudiant in etudiants %}
+            <tr>
+                <td>{{ etudiant.getIdEtudiant }}</td>
+                <td>{{ etudiant.getLogin }}</td>
+                <td>{{ etudiant.getNom }}</td>
+                <td>{{ etudiant.getPrenom }}</td>
+                <td>{{ etudiant.getEmail }}</td>
+                <td><a href="/etudiant/{{ etudiant.getIdEtudiant }}">Voir Information</a></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+    <a href="/etudiant/add">Ajout d'un utilisateur</a>
+{% endblock %}

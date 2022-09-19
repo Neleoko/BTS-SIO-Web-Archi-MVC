@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block title %}add{% endblock %}
+
+{% block content %}
+
+    <form method="post">
+        <label>Pseudo</label>
+        <input name="login" type="text" placeholder="Pseudo" required    ><br>
+        <label>Prénom</label>
+        <input name="prenom" type="text" placeholder="Prénom" required><br>
+        <label>Nom</label>
+        <input name="nom" type="text" placeholder="Nom" required><br>
+        <label>Email</label>
+        <input name="email" type="email" placeholder="email" required><br>
+        <label>Mot de passe</label>
+        <input name="mdp" type="password" placeholder="Mot de passe" required><br>
+        <label>Vérification du mot de passe</label>
+        <input name="vmdp" type="password" placeholder="Verification Mot de passe" required><br>
+
+        <br>
+        <button type="submit">Ajouter</button>
+    </form>
+    {% if veriflogin == true %}
+        <h1>Login deja utilisé</h1>
+    {% endif %}
+    {% if verifmdp == true %}
+        <h1>Le mot de passe est different</h1>
+    {% endif %}
+    {% if erroremail == true %}
+        <h1>Le email est incorrect</h1>
+    {% endif %}
+{% endblock %}
