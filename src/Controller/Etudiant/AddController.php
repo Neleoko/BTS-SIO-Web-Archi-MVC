@@ -2,6 +2,7 @@
 
 namespace Quizz\Controller\Etudiant;
 
+use Exception;
 use Quizz\Core\Controller\ControllerInterface;
 use Quizz\Core\DebugHandler;
 use Quizz\Core\Service\DatabaseService;
@@ -36,19 +37,13 @@ class AddController implements ControllerInterface
             $veriflogin->execute(); //on execute la requete
 
             if ($veriflogin->rowCount() == 0) { //on compte combien de colones il y a dans la requete effectué, si c'est = a 0 on execute le code suivant
-                if ($_POST['mdp'] == $_POST[    'vmdp']) { //on verifie si les 2 mots de passes sont identiques
-                    if ($verfiemail == true){ //on verifie si le mail est bon
+                if ($_POST['mdp'] == $_POST['vmdp']) { //on verifie si les 2 mots de passes sont identiques
+                    if ($verfiemail == true) { //on verifie si le mail est bon
                         $inscription = $connect->prepare("INSERT INTO etudiants(login , motDePasse, nom , prenom , email) VALUES ('{$login}' , '{$mdp}' , '{$nom}' , '{$prenom}' , '{$email}');");
                         $inscription->execute(); //on ajoute l'utilisateur a la base de donnée
                         echo "inscription reussi";
-                    }else{
-                        echo "L'email saisie est incorrect";
                     }
-                } else {
-                    echo"Veuillez saisir un mot de passe identique";
                 }
-            }else {
-                echo "Le login est deja utilisé";
             }
         }
 

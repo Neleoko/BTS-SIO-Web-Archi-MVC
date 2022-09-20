@@ -21,13 +21,4 @@
         <br>
         <button type="submit">Ajouter</button>
     </form>
-    {% if veriflogin == true %}
-        <h1>Login deja utilisé</h1>
-    {% endif %}
-    {% if verifmdp == true %}
-        <h1>Le mot de passe est different</h1>
-    {% endif %}
-    {% if erroremail == true %}
-        <h1>Le email est incorrect</h1>
-    {% endif %}
 {% endblock %}
